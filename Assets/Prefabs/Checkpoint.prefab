@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 971313488c5ad3a408cab9dbe5fb901f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 5399197932550049197}
   bc2d: {fileID: 8470404606469563605}
   lastCheckpointPosition: {fileID: 11400000, guid: 7da0b6b2915a26940b084f007217aa32, type: 2}
 --- !u!95 &5399197932550049197
