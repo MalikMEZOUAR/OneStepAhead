@@ -55,9 +55,9 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -259,7 +259,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Tarodev_0: 8673593704002850736
+      Tarodev_1: 6623691859133803808
+      Tarodev_2: 2219863760738952522
+      Tarodev_3: 3911219941642778566
+      Tarodev_4: 4194008604099855164
+      Tarodev_5: -4476796459887689138
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
