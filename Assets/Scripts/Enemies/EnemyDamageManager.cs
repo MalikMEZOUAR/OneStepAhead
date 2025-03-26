@@ -7,6 +7,7 @@ public class EnemyDamageManager : MonoBehaviour
     [Header("Extra non mandatory components")]
     public EnemySplitting enemySplitting;
     public EnemyUnshelled enemyUnshelled;
+    public EnemySpikes enemySpikes;
 
     public void Hurt()
     {
@@ -23,6 +24,11 @@ public class EnemyDamageManager : MonoBehaviour
         if (enemyUnshelled != null)
         {
             enemyUnshelled.Hurt();
+        }
+        if (enemySpikes != null && enemySpikes.areSpikesOut)
+        {
+            Debug.Log("Impossible de frapper la tortue ! Les piques sont sortis !");
+            return; // Empêche de frapper si les piques sont dehors
         }
     }
 }
