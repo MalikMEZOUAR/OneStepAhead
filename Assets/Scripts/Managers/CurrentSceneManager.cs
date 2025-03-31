@@ -4,20 +4,23 @@ using UnityEngine.SceneManagement;
 public class CurrentSceneManager : MonoBehaviour
 {
     public bool isDebugConsoleOpened = false;
-
+    public GameObject GAMEOVER;
     [Header("Listen to events")]
     public StringEventChannel onLevelEnded;
+    public VoidEventChannel onPlayerDeath;
     public BoolEventChannel onDebugConsoleOpenEvent;
 
     private void Start()
     {
         Application.targetFrameRate = 60;
+        GAMEOVER.SetActive(false);
         Time.timeScale = 1f;
     }
 
     private void OnEnable()
     {
         onLevelEnded.OnEventRaised += LoadScene;
+        onPlayerDeath.OnEventRaised += Die;
         onDebugConsoleOpenEvent.OnEventRaised += OnDebugConsoleOpen;
     }
 
@@ -70,10 +73,14 @@ public class CurrentSceneManager : MonoBehaviour
         Application.Quit();
 #endif
     }
+    private void Die(){
+        GAMEOVER.SetActive(true);
+    }
 
     private void OnDisable()
     {
         onLevelEnded.OnEventRaised -= LoadScene;
+        onPlayerDeath.OnEventRaised -= Die;
         onDebugConsoleOpenEvent.OnEventRaised -= OnDebugConsoleOpen;
     }
 
