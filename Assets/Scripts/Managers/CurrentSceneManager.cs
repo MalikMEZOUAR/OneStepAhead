@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class CurrentSceneManager : MonoBehaviour
 {
@@ -74,9 +75,13 @@ public class CurrentSceneManager : MonoBehaviour
 #endif
     }
     private void Die(){
-        GAMEOVER.SetActive(true);
+        StartCoroutine(DieAfterDelay(1f));
     }
-
+private IEnumerator DieAfterDelay(float delay)
+{
+    yield return new WaitForSeconds(delay); 
+    GAMEOVER.SetActive(true);
+}
     private void OnDisable()
     {
         onLevelEnded.OnEventRaised -= LoadScene;
