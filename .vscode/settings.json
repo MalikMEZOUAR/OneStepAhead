@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "SAE_402.sln"
+    "dotnet.defaultSolution": "Sans titre.sln"
 }
