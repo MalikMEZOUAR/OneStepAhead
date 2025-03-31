@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     [SerializeField]
     private BoxCollider2D bc;
-
+    public VoidEventChannel onPlayerDeath;
     private float moveDirectionX;
     private bool isGamePaused = false;
 
@@ -71,6 +71,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnEnable()
     {
+        onPlayerDeath.OnEventRaised += Die;
         onTogglePauseEvent.OnEventRaised += OnPauseEvent;
         onDebugTeleportEvent.OnEventRaised += OnDebugTeleport;
     }
@@ -293,7 +294,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnDisable()
     {
+        onPlayerDeath.OnEventRaised -= Die;
         onTogglePauseEvent.OnEventRaised -= OnPauseEvent;
         onDebugTeleportEvent.OnEventRaised -= OnDebugTeleport;
+    }
+
+    void Die(){
+        rb.bodyType = RigidbodyType2D.Static;
+        bc.enabled = false;
+        enabled=false;
     }
 }

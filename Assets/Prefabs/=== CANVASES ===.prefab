@@ -272,7 +272,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 170}
+  m_AnchoredPosition: {x: 0, y: 187}
   m_SizeDelta: {x: 1093.5562, y: 164.3675}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9109185923414646325
@@ -303,10 +303,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Partie Termin\xE9e"
+  m_text: Partie  Terminee
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4e183fffd8f704a7f8521e40060492bd, type: 2}
+  m_sharedMaterial: {fileID: 6658057917202548109, guid: 4e183fffd8f704a7f8521e40060492bd, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -368,7 +368,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0.000244216, w: -2.3740005}
+  m_margin: {x: 0, y: 0, z: 0.000244216, w: -107.98986}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -606,7 +606,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000076293945, y: -110}
+  m_AnchoredPosition: {x: -0.0000076293945, y: -150}
   m_SizeDelta: {x: 488.787, y: 91.6475}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &381663901751566605
