@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7227321085222708516}
   - component: {fileID: 5006756804555336526}
   - component: {fileID: 1426134225449435281}
+  - component: {fileID: 4847979713883229078}
   m_Layer: 6
   m_Name: RaddishEnemy
   m_TagString: Enemy
@@ -83,7 +84,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -2145056254, guid: 74efd5603ae272d459a6fecbde2fbb19, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.9375, y: 1.1875}
@@ -222,3 +223,27 @@ MonoBehaviour:
   enemy: {fileID: 5006756804555336526}
   enemySplitting: {fileID: 0}
   enemyUnshelled: {fileID: 0}
+  enemySpikes: {fileID: 0}
+--- !u!114 &4847979713883229078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8474634828230418317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7398ba74a3926824491a3d45aca612d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 7227321085222708516}
+  animator: {fileID: 8474634828230418316}
+  speed: 0.5
+  moveDuration: 5
+  canWait: 1
+  obstacleLayersMask:
+    serializedVersion: 2
+    m_Bits: 0
+  obstacleDetectionLength: 0.15
+  bc: {fileID: 8485572123099984792}
+  obstacleCheckRadius: 0.25
