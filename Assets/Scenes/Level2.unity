@@ -34211,6 +34211,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6722714434073853348, guid: 3a535e80d5f7cab42aa945a6a87c152f, type: 3}
   m_PrefabInstance: {fileID: 1185649684}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &615727722 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7281631540391133852, guid: 8a0bb77658d6ab84eb56bc1df6ab2689, type: 3}
+  m_PrefabInstance: {fileID: 1989669892}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &617590054 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8520597522518767273, guid: 43cfbbbc17165f146b22d811a1182c33, type: 3}
@@ -62743,6 +62748,14 @@ PrefabInstance:
       propertyPath: pauseMenuUI
       value: 
       objectReference: {fileID: 1989669893}
+    - target: {fileID: 879175950831259079, guid: 4f5509a2dc47c8d458c27204332596dc, type: 3}
+      propertyPath: GAMEOVER
+      value: 
+      objectReference: {fileID: 615727722}
+    - target: {fileID: 879175950831259079, guid: 4f5509a2dc47c8d458c27204332596dc, type: 3}
+      propertyPath: onPlayerDeath
+      value: 
+      objectReference: {fileID: 11400000, guid: e0b8ec73eeeaa0b47ab72ed51288e42c, type: 2}
     - target: {fileID: 879175950831259082, guid: 4f5509a2dc47c8d458c27204332596dc, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -62934,11 +62947,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3291461078491487932, guid: d2f4cdff9d0f4f741bcf05a85481fe3b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 64.5
+      value: 62.86
       objectReference: {fileID: 0}
     - target: {fileID: 3291461078491487932, guid: d2f4cdff9d0f4f741bcf05a85481fe3b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5
+      value: 0.96
       objectReference: {fileID: 0}
     - target: {fileID: 3291461078491487932, guid: d2f4cdff9d0f4f741bcf05a85481fe3b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -70299,6 +70312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2118278078}
   bc: {fileID: 2118278077}
+  onPlayerDeath: {fileID: 11400000, guid: e0b8ec73eeeaa0b47ab72ed51288e42c, type: 2}
   animator: {fileID: 2118278079}
   moveSpeed: 11
   isStunned: 0
