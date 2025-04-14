@@ -6,6 +6,7 @@ public class CurrentSceneManager : MonoBehaviour
 {
     public bool isDebugConsoleOpened = false;
     public GameObject GAMEOVER;
+
     [Header("Listen to events")]
     public StringEventChannel onLevelEnded;
     public VoidEventChannel onPlayerDeath;
@@ -14,15 +15,27 @@ public class CurrentSceneManager : MonoBehaviour
     private void Start()
     {
         Application.targetFrameRate = 60;
-        GAMEOVER.SetActive(false);
+        if (GAMEOVER != null) GAMEOVER.SetActive(false);
         Time.timeScale = 1f;
     }
 
     private void OnEnable()
     {
-        onLevelEnded.OnEventRaised += LoadScene;
-        onPlayerDeath.OnEventRaised += Die;
-        onDebugConsoleOpenEvent.OnEventRaised += OnDebugConsoleOpen;
+        if (onLevelEnded != null) onLevelEnded.OnEventRaised += LoadScene;
+        if (onPlayerDeath != null) onPlayerDeath.OnEventRaised += Die;
+        if (onDebugConsoleOpenEvent != null) onDebugConsoleOpenEvent.OnEventRaised += OnDebugConsoleOpen;
+    }
+
+    private void OnDisable()
+    {
+        if (onLevelEnded != null) onLevelEnded.OnEventRaised -= LoadScene;
+        if (onPlayerDeath != null) onPlayerDeath.OnEventRaised -= Die;
+        if (onDebugConsoleOpenEvent != null) onDebugConsoleOpenEvent.OnEventRaised -= OnDebugConsoleOpen;
+    }
+
+    public void ReturnToMainMenu()
+    {
+        LoadScene("MainMenu");
     }
 
     public void LoadScene(string sceneName)
@@ -58,12 +71,7 @@ public class CurrentSceneManager : MonoBehaviour
     public static void RestartLastCheckpoint()
     {
         Debug.Log("RestartLastCheckpoint");
-        // Refill life to full
-        // Position to last checkpoint
-        // Remove menu
-        // Reset Rigidbody
-        // Reactivate Player movements
-        // Reset Player's rotation
+        // TODO : implement checkpoint logic
     }
 
     public static void QuitGame()
@@ -74,19 +82,16 @@ public class CurrentSceneManager : MonoBehaviour
         Application.Quit();
 #endif
     }
-    private void Die(){
+
+    private void Die()
+    {
         StartCoroutine(DieAfterDelay(1f));
     }
-private IEnumerator DieAfterDelay(float delay)
-{
-    yield return new WaitForSeconds(delay); 
-    GAMEOVER.SetActive(true);
-}
-    private void OnDisable()
+
+    private IEnumerator DieAfterDelay(float delay)
     {
-        onLevelEnded.OnEventRaised -= LoadScene;
-        onPlayerDeath.OnEventRaised -= Die;
-        onDebugConsoleOpenEvent.OnEventRaised -= OnDebugConsoleOpen;
+        yield return new WaitForSeconds(delay);
+        if (GAMEOVER != null) GAMEOVER.SetActive(true);
     }
 
     private void OnDebugConsoleOpen(bool debugConsoleOpened)
