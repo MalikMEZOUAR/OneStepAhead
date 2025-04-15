@@ -98,4 +98,11 @@ public class CurrentSceneManager : MonoBehaviour
     {
         isDebugConsoleOpened = debugConsoleOpened;
     }
+
+    public void LoadCreditScene()
+{
+    LoadScene("CreditScene");
 }
+
+}
+
