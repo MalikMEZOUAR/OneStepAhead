@@ -104,5 +104,11 @@ public class CurrentSceneManager : MonoBehaviour
     LoadScene("CreditScene");
 }
 
+        public void MenuScene()
+{
+    LoadScene("MainMenu");
+}
+
+
 }
 

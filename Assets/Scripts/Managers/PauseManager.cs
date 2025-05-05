@@ -78,4 +78,6 @@ public class PauseManager : MonoBehaviour
     {
         onDebugConsoleOpenEvent.OnEventRaised -= TogglePauseDebug;
     }
+
+
 }
