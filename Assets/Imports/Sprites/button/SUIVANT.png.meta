@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3af25f363fcb7431aac3f0dda4160599
+guid: 0fa519605b19a4485a555734eecd290f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5434904771955375395
-    second: Untitled design-13_0
+      213: 3716960603440864735
+    second: SUIVANT_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,17 +96,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Untitled design-13_0
+      name: SUIVANT_0
       rect:
         serializedVersion: 2
-        x: 742
-        y: 422
-        width: 438
-        height: 235
+        x: 805
+        y: 473
+        width: 309
+        height: 135
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dd2468fb7e65394b0800000000000000
-      internalID: -5434904771955375395
+      spriteID: fddd63cb9fb459330800000000000000
+      internalID: 3716960603440864735
       vertices: []
       indices: 
       edges: []
@@ -134,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Untitled design-13_0: -5434904771955375395
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
