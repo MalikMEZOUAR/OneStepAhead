@@ -65337,6 +65337,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerStunEffectContainer
       objectReference: {fileID: 0}
+    - target: {fileID: 7665061981411180109, guid: 8adb7e3f4486602478f1493a1f45e9dc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -66028,6 +66032,10 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 814072445}
+    - target: {fileID: 4327952917441872136, guid: 92bac9f893f07004597c7c071c3c0d9a, type: 3}
+      propertyPath: victorySound
+      value: 
+      objectReference: {fileID: 8300000, guid: ac0b01adff324ff4588f2023fa77333e, type: 3}
     - target: {fileID: 4327952917441872136, guid: 92bac9f893f07004597c7c071c3c0d9a, type: 3}
       propertyPath: nextLevelName
       value: Level2

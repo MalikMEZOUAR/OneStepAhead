@@ -1406,6 +1406,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1201226261}
     m_Modifications:
     - target: {fileID: 4327952917441872136, guid: 92bac9f893f07004597c7c071c3c0d9a, type: 3}
+      propertyPath: victorySound
+      value: 
+      objectReference: {fileID: 8300000, guid: ac0b01adff324ff4588f2023fa77333e, type: 3}
+    - target: {fileID: 4327952917441872136, guid: 92bac9f893f07004597c7c071c3c0d9a, type: 3}
       propertyPath: nextLevelName
       value: CreditScene
       objectReference: {fileID: 0}
@@ -71171,6 +71175,9 @@ MonoBehaviour:
   onDebugDeathEvent: {fileID: 11400000, guid: 68cc81557b33a794c96545249fb9ff04, type: 2}
   onPlayerDeath: {fileID: 11400000, guid: e0b8ec73eeeaa0b47ab72ed51288e42c, type: 2}
   deathSound: {fileID: 2118278081}
+  cameraShakeEvent: {fileID: 11400000, guid: 1b81751bea5122a49b0f5a48dcc10219, type: 2}
+  damageShakeType: {fileID: 11400000, guid: 9ad9c4a8bb991b44a876790b573d0196, type: 2}
+  deathShakeType: {fileID: 11400000, guid: 6f6035f3713e1734a8bd5802b1a11f8b, type: 2}
 --- !u!61 &2118278077
 BoxCollider2D:
   m_ObjectHideFlags: 0

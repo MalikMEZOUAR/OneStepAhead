@@ -94,3 +94,5 @@ if (cameraShakeEvent != null && deathShakeType != null)
         onDebugDeathEvent.OnEventRaised -= Die;
     }
 }
+
+

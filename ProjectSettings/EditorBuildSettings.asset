@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/_Preload.unity
     guid: e4cd14f083a883b40bc5e17491029dcc
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: dce98c8675be340f4836f52e8679863b
+  - enabled: 1
     path: Assets/Scenes/CreditScene.unity
     guid: d09fe269a48ebbd409797c78b50468dd
   - enabled: 1
@@ -23,9 +26,6 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/CreditScen.unity
     guid: 6dd265c3175f04d6c9d0a6ee813e0956
-  - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: dce98c8675be340f4836f52e8679863b
   - enabled: 1
     path: Assets/Scenes/Tutorial.unity
     guid: 9c5ff8b279e0d458cad58143ba3aaa46
