@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7133833862162455713}
   - component: {fileID: 8854908382153415061}
   - component: {fileID: -7280150718294633311}
+  - component: {fileID: -1430019550173101172}
   m_Layer: 0
   m_Name: SnailUnshelled
   m_TagString: Untagged
@@ -52,6 +53,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -89,7 +93,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!50 &7133833862162455713
 Rigidbody2D:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -100,8 +104,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -149,3 +153,18 @@ MonoBehaviour:
   enemy: {fileID: 8854908382153415061}
   enemySplitting: {fileID: 0}
   enemyUnshelled: {fileID: 0}
+  enemySpikes: {fileID: 0}
+--- !u!114 &-1430019550173101172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7611462423529415316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa857e71ce1d4e94a9766af24314bdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitSound: {fileID: 8300000, guid: 47a9fa6fa28c740389f3441e2d539deb, type: 3}
+  volume: 1

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5006756804555336526}
   - component: {fileID: 1426134225449435281}
   - component: {fileID: 4847979713883229078}
+  - component: {fileID: -5631802914210271749}
   m_Layer: 6
   m_Name: RaddishEnemy
   m_TagString: Enemy
@@ -247,3 +248,17 @@ MonoBehaviour:
   obstacleDetectionLength: 0.15
   bc: {fileID: 8485572123099984792}
   obstacleCheckRadius: 0.25
+--- !u!114 &-5631802914210271749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8474634828230418317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa857e71ce1d4e94a9766af24314bdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitSound: {fileID: 8300000, guid: 47a9fa6fa28c740389f3441e2d539deb, type: 3}
+  volume: 1

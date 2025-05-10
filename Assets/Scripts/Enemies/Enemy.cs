@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
     [ReadOnlyInspector]
     public float currentHealth = 0f;
 
+
+
     public SpriteRenderer spriteRenderer;
 
     public Rigidbody2D rb;
@@ -17,6 +19,8 @@ public class Enemy : MonoBehaviour
 
     public Color hitColor = new Color(0.8207547f, 0.8207547f, 0.8207547f);
 
+    
+    
     // List of contact points when something collides with that GameObject
     private ContactPoint2D[] listContacts = new ContactPoint2D[1];
 

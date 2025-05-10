@@ -104,9 +104,10 @@ public class CurrentSceneManager : MonoBehaviour
     LoadScene("CreditScene");
 }
 
-    public void LoadTutoScene()
+public void LoadTutoScene()
 {
-    LoadScene("tutorial");
+    Debug.Log("Bouton cliqué - Tentative de chargement de Tutorial");
+    SceneManager.LoadScene("Tutorial");
 }
 
         public void MenuScene()

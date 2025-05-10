@@ -9,7 +9,6 @@ public class TutorialManager : MonoBehaviour
     [Header("Configuration des étapes")]
     public TMP_Text tutorialText;
     public Button nextButton;
-    public Button previousButton;
     public Button startButton;
     public Button menuButton;
 
@@ -26,7 +25,7 @@ public class TutorialManager : MonoBehaviour
         "Bienvenue dans le tutoriel !",
         "Utilise la flèche droite pour avancer.",
         "Utilise la flèche gauche pour reculer.",
-        "Appuie sur [Espace] pour interagir.",
+        "Appuie sur [Espace] pour sauter.",
         "Prêt à jouer ?"
     };
 
@@ -51,7 +50,6 @@ public class TutorialManager : MonoBehaviour
 
         // Initialisation de l'interface
         UpdateText();
-        previousButton.interactable = false;
         startButton.gameObject.SetActive(false);
         menuButton.gameObject.SetActive(true);
         DeactivateAllArrows();
@@ -61,6 +59,12 @@ public class TutorialManager : MonoBehaviour
 
         // Retirer la sélection UI pour éviter les triggers avec "Espace"
         EventSystem.current.SetSelectedGameObject(null);
+
+        // Supprimer le bouton Précédent s'il est présent
+        if (nextButton != null)
+        {
+            nextButton.interactable = true;
+        }
     }
 
     void Update()
@@ -79,31 +83,19 @@ public class TutorialManager : MonoBehaviour
             UpdateText();
         }
 
-        previousButton.interactable = (currentStep > 0);
         nextButton.interactable = (currentStep < steps.Length - 1);
 
         if (currentStep == steps.Length - 1)
         {
             startButton.gameObject.SetActive(true);
             menuButton.gameObject.SetActive(false);
+            nextButton.gameObject.SetActive(false); // On cache le bouton suivant à la fin
         }
         else
         {
             startButton.gameObject.SetActive(false);
             menuButton.gameObject.SetActive(true);
         }
-    }
-
-    public void PreviousStep()
-    {
-        if (currentStep > 0)
-        {
-            currentStep--;
-            UpdateText();
-        }
-
-        previousButton.interactable = (currentStep > 0);
-        nextButton.interactable = (currentStep < steps.Length - 1);
     }
 
     void UpdateText()
@@ -130,7 +122,7 @@ public class TutorialManager : MonoBehaviour
 
     bool CheckReferences()
     {
-        if (tutorialText == null || nextButton == null || previousButton == null || startButton == null ||
+        if (tutorialText == null || nextButton == null || startButton == null ||
             menuButton == null || arrowRight == null || arrowLeft == null || spaceKeyImage == null)
         {
             Debug.LogError("Une ou plusieurs références ne sont pas assignées dans l'inspecteur !");
@@ -143,7 +135,6 @@ public class TutorialManager : MonoBehaviour
     {
         Navigation noNav = new Navigation { mode = Navigation.Mode.None };
         nextButton.navigation = noNav;
-        previousButton.navigation = noNav;
         startButton.navigation = noNav;
         menuButton.navigation = noNav;
     }

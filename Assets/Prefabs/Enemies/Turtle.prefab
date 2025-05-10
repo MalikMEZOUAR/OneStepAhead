@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1178487323412632387}
   - component: {fileID: 7588978818121147772}
   - component: {fileID: -9182495918653816216}
+  - component: {fileID: -6771806938555049131}
   m_Layer: 6
   m_Name: Turtle
   m_TagString: Enemy
@@ -223,6 +224,7 @@ MonoBehaviour:
   enemy: {fileID: 1178487323412632387}
   enemySplitting: {fileID: 0}
   enemyUnshelled: {fileID: 0}
+  enemySpikes: {fileID: 0}
 --- !u!114 &-9182495918653816216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,3 +237,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0908ae3b4bd56645a42e963964f530b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  areSpikesOut: 0
+--- !u!114 &-6771806938555049131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 363551565993406121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa857e71ce1d4e94a9766af24314bdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitSound: {fileID: 8300000, guid: 47a9fa6fa28c740389f3441e2d539deb, type: 3}
+  volume: 1

@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 6788854237532947277}
   - component: {fileID: 2489769924140056956}
   - component: {fileID: 1466006758470492236}
+  - component: {fileID: -7206326924308321393}
   m_Layer: 6
   m_Name: Snail
   m_TagString: Enemy
@@ -56,6 +57,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -93,7 +97,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!50 &6257348870956570539
 Rigidbody2D:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -104,8 +108,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -126,6 +130,7 @@ BoxCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3904770375926592105}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -149,7 +154,8 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: 0.057851315, y: -0.060896486}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,12 +166,11 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
   m_Size: {x: 0.9812479, y: 0.6001436}
   m_EdgeRadius: 0
 --- !u!95 &224868069114828822
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -179,6 +184,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -222,6 +228,7 @@ MonoBehaviour:
   enemy: {fileID: 2489769924140056956}
   enemySplitting: {fileID: 0}
   enemyUnshelled: {fileID: 1466006758470492236}
+  enemySpikes: {fileID: 0}
 --- !u!114 &2489769924140056956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,3 +264,17 @@ MonoBehaviour:
   animator: {fileID: 224868069114828822}
   unshelledPrefab: {fileID: 7611462423529415316, guid: 1057c0121d451ac43b81b4881169bc81, type: 3}
   shellPrefab: {fileID: 8139880303022733065, guid: ca7c824a3f7f48d4f904cbcb686a3b6c, type: 3}
+--- !u!114 &-7206326924308321393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3904770375926592105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa857e71ce1d4e94a9766af24314bdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitSound: {fileID: 8300000, guid: 47a9fa6fa28c740389f3441e2d539deb, type: 3}
+  volume: 1
