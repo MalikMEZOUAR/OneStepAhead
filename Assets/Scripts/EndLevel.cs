@@ -14,6 +14,7 @@ public class EndLevel : MonoBehaviour
     [Header("Broadcast event channels")]
     public StringEventChannel onLevelEnded;
     public PlaySoundAtEventChannel sfxAudioChannel;
+    
 
     private bool hasBeenTriggered = false;
 

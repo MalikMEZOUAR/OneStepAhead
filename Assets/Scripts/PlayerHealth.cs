@@ -20,6 +20,10 @@ public class PlayerHealth : MonoBehaviour
     [Header("Broadcast event channels")]
     public VoidEventChannel onPlayerDeath;
 
+    [Header("Audio Settings")]
+    public AudioSource deathSound; // Ajout de l'AudioSource pour le son de mort
+    
+
     private void Awake()
     {
         if (needResetHP || playerData.currentHealth <= 0)
@@ -53,6 +57,12 @@ public class PlayerHealth : MonoBehaviour
         onPlayerDeath?.Raise();
         GetComponent<Rigidbody2D>().simulated = false;
         transform.Rotate(0f, 0f, 45f);
+        //son pour la mort
+         if (deathSound != null && !deathSound.isPlaying)
+        {
+            deathSound.Play();
+        }
+
         animator.SetTrigger("Death");
     }
 
