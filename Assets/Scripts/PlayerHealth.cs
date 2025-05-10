@@ -23,6 +23,10 @@ public class PlayerHealth : MonoBehaviour
     [Header("Audio Settings")]
     public AudioSource deathSound; // Ajout de l'AudioSource pour le son de mort
     
+    [Header("Camera Shake")]
+public CameraShakeEventChannel cameraShakeEvent; // Le canal d'évènement pour le shake
+public ShakeTypeVariable damageShakeType; // Le type de secousse pour les dégâts
+public ShakeTypeVariable deathShakeType;  // Le type de secousse pour la mort
 
     private void Awake()
     {
@@ -46,6 +50,14 @@ public class PlayerHealth : MonoBehaviour
         {
             Die();
         }
+
+        // Déclencher le Camera Shake à la blessure
+        if (cameraShakeEvent != null && damageShakeType != null)
+{
+    cameraShakeEvent.Raise(damageShakeType);
+    Debug.Log("Secousse caméra (blessure) !");
+}
+
         else
         {
             StartCoroutine(playerInvulnerable.Invulnerable());
@@ -54,6 +66,12 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
+      // **Déclencher le Camera Shake à la mort**
+if (cameraShakeEvent != null && deathShakeType != null)
+{
+    cameraShakeEvent.Raise(deathShakeType);
+    Debug.Log("Secousse caméra (mort) !");
+}  
         onPlayerDeath?.Raise();
         GetComponent<Rigidbody2D>().simulated = false;
         transform.Rotate(0f, 0f, 45f);
