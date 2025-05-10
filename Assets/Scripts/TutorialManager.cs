@@ -2,20 +2,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class TutorialManager : MonoBehaviour
 {
     [Header("Configuration des étapes")]
-    public TMP_Text tutorialText;         // Le texte qui change
-    public Button nextButton;             // Le bouton Suivant
-    public Button previousButton;         // Le bouton Précédent
-    public Button startButton;            // Le bouton Commencer le jeu
-    public Button menuButton;             // Le bouton Retour au menu
+    public TMP_Text tutorialText;
+    public Button nextButton;
+    public Button previousButton;
+    public Button startButton;
+    public Button menuButton;
 
     [Header("Flèches de guidage")]
     public GameObject arrowRight;
-    public GameObject arrowUp;
-    public GameObject arrowDown;
+    public GameObject arrowLeft;
 
     [Header("Images des touches")]
     public GameObject spaceKeyImage;
@@ -24,37 +24,51 @@ public class TutorialManager : MonoBehaviour
     private string[] steps = new string[]
     {
         "Bienvenue dans le tutoriel !",
-        "Utilise les flèches pour te déplacer.",
-        "Appuie sur [Espace] pour sauter.",
-        "Appuie sur [F] pour attaquer.",
-        "Évite les obstacles pour survivre."
+        "Utilise la flèche droite pour avancer.",
+        "Utilise la flèche gauche pour reculer.",
+        "Appuie sur [Espace] pour interagir.",
+        "Prêt à jouer ?"
     };
 
     // Liste des flèches et images activées à chaque étape
     private GameObject[][] arrowSteps;
-
     private int currentStep = 0;
 
     void Start()
     {
+        // Vérification des références
+        if (!CheckReferences()) return;
+
         // Initialisation des flèches et images par étape
         arrowSteps = new GameObject[][]
         {
-            new GameObject[] {},                     // Étape 0 : Aucune flèche
-            new GameObject[] { arrowRight },         // Étape 1 : Flèche de déplacement
-            new GameObject[] { arrowUp, spaceKeyImage }, // Étape 2 : Flèche de saut + image de touche Espace
-            new GameObject[] { arrowDown },          // Étape 3 : Flèche d'attaque
-            new GameObject[] {}                      // Étape 4 : Aucune flèche
+            new GameObject[] {},                   // Étape 0 : Rien à montrer
+            new GameObject[] { arrowRight },        // Étape 1 : Flèche droite
+            new GameObject[] { arrowLeft },         // Étape 2 : Flèche gauche
+            new GameObject[] { spaceKeyImage },     // Étape 3 : Barre d'espace
+            new GameObject[] {}                     // Étape 4 : Aucune flèche (écran de fin)
         };
 
-        // On affiche le premier texte
+        // Initialisation de l'interface
         UpdateText();
-        
-        // Bouton Précédent désactivé au début
         previousButton.interactable = false;
         startButton.gameObject.SetActive(false);
         menuButton.gameObject.SetActive(true);
-        spaceKeyImage.SetActive(false); // On désactive l'image au début
+        DeactivateAllArrows();
+
+        // Désactiver la navigation clavier sur les boutons
+        DisableButtonNavigation();
+
+        // Retirer la sélection UI pour éviter les triggers avec "Espace"
+        EventSystem.current.SetSelectedGameObject(null);
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            EventSystem.current.SetSelectedGameObject(null); 
+        }
     }
 
     public void NextStep()
@@ -65,14 +79,17 @@ public class TutorialManager : MonoBehaviour
             UpdateText();
         }
 
-        // Gestion des boutons
         previousButton.interactable = (currentStep > 0);
         nextButton.interactable = (currentStep < steps.Length - 1);
 
-        // Si on est à la dernière étape, on montre les boutons finaux
         if (currentStep == steps.Length - 1)
         {
             startButton.gameObject.SetActive(true);
+            menuButton.gameObject.SetActive(false);
+        }
+        else
+        {
+            startButton.gameObject.SetActive(false);
             menuButton.gameObject.SetActive(true);
         }
     }
@@ -85,41 +102,61 @@ public class TutorialManager : MonoBehaviour
             UpdateText();
         }
 
-        // Gestion des boutons
         previousButton.interactable = (currentStep > 0);
         nextButton.interactable = (currentStep < steps.Length - 1);
-
-        // Si on revient en arrière, on cache les boutons finaux
-        if (currentStep < steps.Length - 1)
-        {
-            startButton.gameObject.SetActive(false);
-        }
     }
 
     void UpdateText()
     {
-        tutorialText.text = steps[currentStep];
+        if (tutorialText != null)
+        {
+            tutorialText.text = steps[currentStep];
+        }
 
-        // Désactiver toutes les flèches et images
-        arrowRight.SetActive(false);
-        arrowUp.SetActive(false);
-        arrowDown.SetActive(false);
-        spaceKeyImage.SetActive(false);
+        DeactivateAllArrows();
 
-        // Activer les flèches et images nécessaires pour l'étape actuelle
         foreach (GameObject arrow in arrowSteps[currentStep])
         {
-            arrow.SetActive(true);
+            if (arrow != null) arrow.SetActive(true);
         }
+    }
+
+    void DeactivateAllArrows()
+    {
+        arrowRight?.SetActive(false);
+        arrowLeft?.SetActive(false);
+        spaceKeyImage?.SetActive(false);
+    }
+
+    bool CheckReferences()
+    {
+        if (tutorialText == null || nextButton == null || previousButton == null || startButton == null ||
+            menuButton == null || arrowRight == null || arrowLeft == null || spaceKeyImage == null)
+        {
+            Debug.LogError("Une ou plusieurs références ne sont pas assignées dans l'inspecteur !");
+            return false;
+        }
+        return true;
+    }
+
+    void DisableButtonNavigation()
+    {
+        Navigation noNav = new Navigation { mode = Navigation.Mode.None };
+        nextButton.navigation = noNav;
+        previousButton.navigation = noNav;
+        startButton.navigation = noNav;
+        menuButton.navigation = noNav;
     }
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Level1"); // Remplace "MainLevel" par le nom exact de ta scène de jeu
+        Debug.Log("Chargement de la scène Level1...");
+        SceneManager.LoadScene("Scenes/Level1");
     }
 
     public void ReturnToMenu()
     {
-        SceneManager.LoadScene("MainMenu"); // Remplace "MainMenu" par le nom exact de ta scène de menu
+        Debug.Log("Retour au menu principal...");
+        SceneManager.LoadScene("Scenes/MainMenu");
     }
 }
